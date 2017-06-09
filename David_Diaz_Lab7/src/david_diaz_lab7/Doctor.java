@@ -62,7 +62,7 @@ public class Doctor extends Persona{
 
     @Override
     public String toString() {
-        return "Doctor{" + super.toString();
+        return "Doctor " + super.toString();
     }
     
 }
