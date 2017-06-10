@@ -18,6 +18,8 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         BG_Sexo = new javax.swing.ButtonGroup();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        Eliminar = new javax.swing.JMenuItem();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -98,6 +100,29 @@ public class Main extends javax.swing.JFrame {
         jCB_PA_A = new javax.swing.JComboBox<>();
         JPB_Barra = new javax.swing.JProgressBar();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jPB_E = new javax.swing.JProgressBar();
+        jLabel19 = new javax.swing.JLabel();
+        jPB_H = new javax.swing.JProgressBar();
+        jLabel20 = new javax.swing.JLabel();
+        jPB_CE = new javax.swing.JProgressBar();
+        jLabel27 = new javax.swing.JLabel();
+        jPB_P = new javax.swing.JProgressBar();
+        jLabel31 = new javax.swing.JLabel();
+        jPB_CO = new javax.swing.JProgressBar();
+        jLabel32 = new javax.swing.JLabel();
+        jPB_PU = new javax.swing.JProgressBar();
+        jLabel33 = new javax.swing.JLabel();
+        jPB_R = new javax.swing.JProgressBar();
+        jLabel34 = new javax.swing.JLabel();
+
+        Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(Eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -347,18 +372,17 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jLabel21)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jCB_Sangre, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTF_Edad1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addGap(16, 16, 16)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTF_Peso1)
-                                    .addComponent(jTF_ID1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel15))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabel14)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTF_Edad1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabel17)
+                            .addGap(16, 16, 16)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTF_Peso1)
+                                .addComponent(jTF_ID1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel15)
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel22)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -498,9 +522,9 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel25)
                     .addComponent(jCB_Organos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(Color_O, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Color_O, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26))
                 .addGap(120, 120, 120)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
@@ -519,6 +543,11 @@ public class Main extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Doctor");
         arbolito.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        arbolito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arbolitoMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(arbolito);
 
         jButton4.setText("Listar");
@@ -573,27 +602,111 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setText("Evaluar");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+
+        jPB_E.setMaximum(100000000);
+
+        jLabel19.setText("Estomago");
+
+        jLabel20.setText("Hígado");
+
+        jLabel27.setText("Cerebro");
+
+        jLabel31.setText("Páncreas");
+
+        jLabel32.setText("Corazón");
+
+        jLabel33.setText("Pulmones");
+
+        jLabel34.setText("Riñones");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(200, 200, 200)
+                .addComponent(jLabel19)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JPB_Barra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JPB_Barra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCB_PA_A, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jCB_PA_A, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCB_DOC_A, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPB_E, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPB_H, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCB_DOC_A, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 164, Short.MAX_VALUE)))
+                                .addGap(190, 190, 190)
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPB_CE, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(190, 190, 190)
+                                .addComponent(jLabel27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPB_P, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(190, 190, 190)
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPB_CO, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(190, 190, 190)
+                                .addComponent(jLabel32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPB_PU, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(190, 190, 190)
+                                .addComponent(jLabel33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPB_R, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(190, 190, 190)
+                                .addComponent(jLabel34)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -612,7 +725,37 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JPB_Barra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(358, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPB_E, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPB_H, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPB_CE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPB_P, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPB_CO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPB_PU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPB_R, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Elegir Medico", jPanel6);
@@ -650,27 +793,29 @@ public class Main extends javax.swing.JFrame {
                 dias += "Lunes";
             }
             if (jRB_MA.isSelected()) {
-                dias += "Martes";
+                dias += " Martes";
             }
             if (jRB_MI.isSelected()) {
-                dias += "Miercoles";
+                dias += " Miercoles";
             }
             if (jRB_J.isSelected()) {
-                dias += "Jueves";
+                dias += " Jueves";
             }
             if (jRB_V.isSelected()) {
-                dias += "Viernes";
+                dias += " Viernes";
             }
             if (jRB_M.isSelected()) {
                 sexo = "Maculino";
             }else{
                 sexo = "Femenino";
             }
-            Persona p = new Doctor(Integer.parseInt(jTF_Anios.getText()), horario, dias, jTF_Nombre.getText(), Integer.parseInt(jTF_Edad.getText()), jTF_ID.getText(), Double.parseDouble(jTF_Peso.getText()), sexo);
+            Doctor p = new Doctor(Integer.parseInt(jTF_Anios.getText()), horario, dias, jTF_Nombre.getText(), Integer.parseInt(jTF_Edad.getText()), jTF_ID.getText(), Double.parseDouble(jTF_Peso.getText()), sexo);
+            op = JOptionPane.showInputDialog(this, "Desea Ingresar Especialidad?[n/s]");
             while(!op.equalsIgnoreCase("n")){
-                op = JOptionPane.showInputDialog(this, "Desea Ingresar Especialidad?[n/s]");
+                
                 es = JOptionPane.showInputDialog(this, "Ingrese Especialidad");
                 ((Doctor)p).getEspecialidades().add(es);
+                op = JOptionPane.showInputDialog(this, "Desea Ingresar Especialidad?[n/s]");
             }
             
             JOptionPane.showMessageDialog(this, "Doctor Creado");
@@ -693,35 +838,53 @@ public class Main extends javax.swing.JFrame {
             
             Persona p = new Paciente(new Date(), new Date(), (String)jCB_Sangre.getSelectedItem(),jTF_Causa.getText(), jTF_Nombre1.getText(), Integer.parseInt(jTF_Edad1.getText()), jTF_ID1.getText(), Double.parseDouble(jTF_Peso1.getText()), sexo);
             if (jCB_E.isSelected()) {
-                ((Paciente)p).getOrganos().add(new Estomago());
+                Estomago E = new Estomago();
+                E.setNivel_efectividad(52580);
+                ((Paciente)p).getOrganos().add(E);
             }
             if (jCB_H.isSelected()) {
-                ((Paciente)p).getOrganos().add(new Higado());
+                Higado H = new Higado();
+                H.setNivel_efectividad(69864);
+                ((Paciente)p).getOrganos().add(H);
             }
             if (jCB_C.isSelected()) {
-                ((Paciente)p).getOrganos().add(new Cerebro());
+                Cerebro C = new Cerebro();
+                C.setNivel_efectividad(600000);
+                ((Paciente)p).getOrganos().add(C);
             }
             if (jCB_P.isSelected()) {
-                ((Paciente)p).getOrganos().add(new Pancreas());
+                Pancreas P = new Pancreas();
+                P.setNivel_efectividad(984236);
+                ((Paciente)p).getOrganos().add((P));
             }
             if (jCB_CO.isSelected()) {
-                ((Paciente)p).getOrganos().add(new Corazon());
+                Corazon CO = new Corazon();
+                CO.setNivel_efectividad(21546);
+                ((Paciente)p).getOrganos().add(CO);
             }
             if (jCB_PU.isSelected()) {
-                ((Paciente)p).getOrganos().add(new Pulmones());
+                Pulmones P = new Pulmones();
+                P.setNivel_efectividad(589213);
+                ((Paciente)p).getOrganos().add(P);
             }
             if (jCB_R.isSelected()) {
-                ((Paciente)p).getOrganos().add(new Riniones());
+                Riniones R = new Riniones();
+                R.setNivel_efectividad(753266);
+                ((Paciente)p).getOrganos().add(R);
             }
+            op = JOptionPane.showInputDialog(this, "Desea Ingresar Enfermedades?[n/s]");
             while(!op.equalsIgnoreCase("n")){
-                op = JOptionPane.showInputDialog(this, "Desea Ingresar Enfermedades?[n/s]");
+                
                 en = JOptionPane.showInputDialog(this, "Ingrese Enfermedad");
                 ((Paciente)p).getEnfermedades().add(en);
+                op = JOptionPane.showInputDialog(this, "Desea Ingresar Enfermedades?[n/s]");
             }
+            op1 = JOptionPane.showInputDialog(this, "Desea Ingresar Alergias?[n/s]");
             while(!op1.equalsIgnoreCase("n")){
-                op1 = JOptionPane.showInputDialog(this, "Desea Ingresar Alergias?[n/s]");
+                
                 al = JOptionPane.showInputDialog(this, "Ingrese Alergias");
                 ((Paciente)p).getAlergias().add(al);
+                op1 = JOptionPane.showInputDialog(this, "Desea Ingresar Alergias?[n/s]");
             }
             JOptionPane.showMessageDialog(this, "Paciente Creado");
             DefaultComboBoxModel modelo = (DefaultComboBoxModel) jCB_Paciente.getModel();
@@ -743,9 +906,11 @@ public class Main extends javax.swing.JFrame {
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         String op = "";
         ((Paciente)jCB_Paciente.getSelectedItem()).getOrganos().get(jCB_Organos.getSelectedIndex()).setColor(Color_O.getBackground());
+        op = JOptionPane.showInputDialog(this, "Desea Ingresar Caracterisicas? [s/n]");
         while (!op.equalsIgnoreCase("n")){
-            op = JOptionPane.showInputDialog(this, "Desea Ingresar Caracterisicas? [s/n]");
+            
             ((Paciente)jCB_Paciente.getSelectedItem()).getOrganos().get(jCB_Organos.getSelectedIndex()).getCaracteristicas().add(JOptionPane.showInputDialog(this, "Ingrese Caracteristica"));
+            op = JOptionPane.showInputDialog(this, "Desea Ingresar Caracterisicas? [s/n]");
         }
         
         ((Paciente)jCB_Paciente.getSelectedItem()).getOrganos().get(jCB_Organos.getSelectedIndex()).setNivel_potenciado(Integer.parseInt(jTF_NIPO.getText()));
@@ -762,13 +927,106 @@ public class Main extends javax.swing.JFrame {
         DefaultTreeModel modelo = (DefaultTreeModel)arbolito.getModel();
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
         DefaultMutableTreeNode nodo_doc;
+        nodo_doc = new DefaultMutableTreeNode(new Doctor(((Doctor)jCB_Doc.getSelectedItem()).getAnio_doctor(), ((Doctor)jCB_Doc.getSelectedItem()).getHorario_trabajo(), ((Doctor)jCB_Doc.getSelectedItem()).getDias_trabajo(), ((Doctor)jCB_Doc.getSelectedItem()).getNombre(), ((Doctor)jCB_Doc.getSelectedItem()).getEdad(), ((Doctor)jCB_Doc.getSelectedItem()).getID(), ((Doctor)jCB_Doc.getSelectedItem()).getPeso(), ((Doctor)jCB_Doc.getSelectedItem()).getSexo()));
+        DefaultMutableTreeNode pac;
+        DefaultMutableTreeNode or;
         
+        for (int i = 0; i < ((Doctor)jCB_Doc.getSelectedItem()).getPacientes().size(); i++) {
+            pac = new DefaultMutableTreeNode(((Doctor)jCB_Doc.getSelectedItem()).getPacientes().get(i));
+            for (int j = 0; j < ((Doctor)jCB_Doc.getSelectedItem()).getPacientes().get(i).getOrganos().size(); j++) {
+                or = new DefaultMutableTreeNode(((Doctor)jCB_Doc.getSelectedItem()).getPacientes().get(i).getOrganos().get(j));
+                pac.add(or);
+            }
+            nodo_doc.add(pac);
+        }
+        raiz.add(nodo_doc);
+        modelo.reload();
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         ((Doctor)jCB_DOC_A.getSelectedItem()).getPacientes().add(((Paciente)jCB_PA_A.getSelectedItem()));
-        JPB_Barra.setValue(((Paciente)jCB_PA_A.getSelectedItem()).getOrganos().size());
+        JOptionPane.showMessageDialog(this, "Paciente Asignado");
+        
+        
     }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        for (int i = 0; i < ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().size(); i++) {
+            if (((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(i) instanceof Estomago) {
+                AE = new AdmEsto(jPB_E, ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_efectividad(), ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_potenciado());
+                try {
+                    AE.start();
+
+                } catch (Exception e) {
+                }
+            }
+            if (((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(i) instanceof Higado) {
+                AH = new AdmHig(jPB_H, ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_efectividad(), ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_potenciado());
+                try {
+                    AH.start();
+
+                } catch (Exception e) {
+                }
+            }
+            if (((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(i) instanceof Cerebro) {
+                AC = new AdmCer(jPB_CE, ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_efectividad(), ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_potenciado());
+                try {
+                    AC.start();
+
+                } catch (Exception e) {
+                }
+            }
+            if (((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(i) instanceof Pancreas) {
+                AP = new AdmPan(jPB_P, ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_efectividad(), ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_potenciado());
+                try {
+                    AP.start();
+
+                } catch (Exception e) {
+                }
+            }
+            if (((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(i) instanceof Corazon) {
+                ACO = new AdmCor(jPB_CO, ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_efectividad(), ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_potenciado());
+                try {
+                    ACO.start();
+
+                } catch (Exception e) {
+                }
+            }
+            if (((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(i) instanceof Pulmones) {
+                APU = new AdmPul(jPB_PU, ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_efectividad(), ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_potenciado());
+                try {
+                    APU.start();
+
+                } catch (Exception e) {
+                }
+            }
+            if (((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(i) instanceof Riniones) {
+                AR = new AdmRin(jPB_R, ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_efectividad(), ((Paciente) jCB_PA_A.getSelectedItem()).getOrganos().get(0).getNivel_potenciado());
+                try {
+                    AR.start();
+
+                } catch (Exception e) {
+                }
+            }
+        }
+
+
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void arbolitoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbolitoMouseClicked
+        if (evt.isMetaDown()) {
+            jPopupMenu1.show(evt.getComponent(), evt.getX(), evt.getY());
+            
+        }
+    }//GEN-LAST:event_arbolitoMouseClicked
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        DefaultTreeModel modelo = (DefaultTreeModel) arbolito.getModel();
+        Object v1 = arbolito.getSelectionPath().getLastPathComponent();
+        nodo_seleccionado = (DefaultMutableTreeNode) v1;
+        modelo.removeNodeFromParent(nodo_seleccionado);
+        modelo.reload();
+    }//GEN-LAST:event_EliminarActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -804,6 +1062,7 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BG_Sexo;
     private javax.swing.JButton Color_O;
+    private javax.swing.JMenuItem Eliminar;
     private javax.swing.JProgressBar JPB_Barra;
     private javax.swing.JTree arbolito;
     private javax.swing.JButton jButton1;
@@ -811,6 +1070,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JCheckBox jCB_C;
     private javax.swing.JCheckBox jCB_CO;
     private javax.swing.JComboBox<String> jCB_DOC_A;
@@ -819,7 +1079,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCB_H;
     private javax.swing.JComboBox<String> jCB_Organos;
     private javax.swing.JCheckBox jCB_P;
-    private javax.swing.JComboBox<String> jCB_PA_A;
+    private javax.swing.JComboBox<Paciente> jCB_PA_A;
     private javax.swing.JCheckBox jCB_PU;
     private javax.swing.JComboBox<String> jCB_Paciente;
     private javax.swing.JCheckBox jCB_R;
@@ -834,29 +1094,44 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JProgressBar jPB_CE;
+    private javax.swing.JProgressBar jPB_CO;
+    private javax.swing.JProgressBar jPB_E;
+    private javax.swing.JProgressBar jPB_H;
+    private javax.swing.JProgressBar jPB_P;
+    private javax.swing.JProgressBar jPB_PU;
+    private javax.swing.JProgressBar jPB_R;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRB_F;
     private javax.swing.JRadioButton jRB_F1;
     private javax.swing.JRadioButton jRB_J;
@@ -884,4 +1159,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTF_Peso1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
+    AdmEsto AE;
+    AdmHig AH;
+    AdmCer AC;
+    AdmPan AP;
+    AdmCor ACO;
+    AdmPul APU;
+    AdmRin AR;
+    private DefaultMutableTreeNode nodo_seleccionado;
 }
