@@ -813,7 +813,7 @@ public class Main extends javax.swing.JFrame {
             op = JOptionPane.showInputDialog(this, "Desea Ingresar Especialidad?[n/s]");
             while(!op.equalsIgnoreCase("n")){
                 
-                es = JOptionPane.showInputDialog(this, "Ingrese Especialidad");
+                es = JOptionPane.showInputDialog(this, "Ingree Especialidad");
                 ((Doctor)p).getEspecialidades().add(es);
                 op = JOptionPane.showInputDialog(this, "Desea Ingresar Especialidad?[n/s]");
             }
