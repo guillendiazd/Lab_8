@@ -1,9 +1,10 @@
 package david_diaz_lab7;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Paciente extends Persona{
+public class Paciente extends Persona {
     private ArrayList<String> enfermedades = new ArrayList();
     private Date fecha_ingreso;
     private Date fecha_alta;

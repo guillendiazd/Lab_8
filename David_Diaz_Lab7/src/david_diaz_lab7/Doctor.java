@@ -1,8 +1,9 @@
 package david_diaz_lab7;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Doctor extends Persona{
+public class Doctor extends Persona {
     private ArrayList<String> especialidades;
     private ArrayList<Paciente> pacientes = new ArrayList();
     private int anio_doctor;

@@ -1,9 +1,11 @@
 package david_diaz_lab7;
 
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Organo {
+public class Organo implements Serializable{
+    private static final long SerialVersionUID = 707L;
     private Color color;
     private ArrayList<String> caracteristicas = new ArrayList();
     private int nivel_efectividad;

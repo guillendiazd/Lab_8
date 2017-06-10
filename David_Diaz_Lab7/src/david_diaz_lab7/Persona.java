@@ -1,5 +1,9 @@
 package david_diaz_lab7;
-public class Persona {
+
+import java.io.Serializable;
+
+public class Persona implements Serializable{
+    private static final long SerialVersionUID = 777L;
     private String nombre;
     private int edad;
     private String ID;
