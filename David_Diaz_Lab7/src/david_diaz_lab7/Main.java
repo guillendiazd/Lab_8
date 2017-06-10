@@ -831,7 +831,7 @@ public class Main extends javax.swing.JFrame {
         try {
             String sexo = "", op="s", op1 = "s", en= "", al="";
             if (jRB_M.isSelected()) {
-                sexo = "Maculino";
+                sexo = "Masculino";
             }else{
                 sexo = "Femenino";
             }
